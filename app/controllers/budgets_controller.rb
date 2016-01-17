@@ -1,4 +1,5 @@
 class BudgetsController < ApplicationController
+  before_action :authorize
   before_action :set_budget, only: [:show, :edit, :update, :destroy]
 
   # GET /budgets

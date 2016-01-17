@@ -1,4 +1,5 @@
 class MovementsController < ApplicationController
+  before_action :authorize
   before_action :set_movement, only: [:show, :edit, :update, :destroy]
 
   # GET /movements
@@ -21,13 +22,15 @@ class MovementsController < ApplicationController
 
   # GET /movements/1/edit
   def edit
+    @categories = Category.all
+    @accounts = Account.all
   end
 
   # POST /movements
   # POST /movements.json
   def create
     @movement = Movement.new(movement_params)
-
+    @movement.user_id = session[:user_id]
     respond_to do |format|
       if @movement.save
         format.html { redirect_to @movement, notice: 'Movement was successfully created.' }
@@ -42,6 +45,7 @@ class MovementsController < ApplicationController
   # PATCH/PUT /movements/1
   # PATCH/PUT /movements/1.json
   def update
+    @movement.user_id = session[:user_id]
     respond_to do |format|
       if @movement.update(movement_params)
         format.html { redirect_to @movement, notice: 'Movement was successfully updated.' }
