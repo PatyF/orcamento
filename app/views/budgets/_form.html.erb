@@ -17,17 +17,17 @@
   </div>
   <div class="field">
     <%= f.label :revenue %><br>
-    <%= f.text_field :revenue %>
+    <%= f.text_field :revenue, class: "form-control"  %>
   </div>
   <div class="field">
     <%= f.label :expense %><br>
-    <%= f.text_field :expense %>
+    <%= f.text_field :expense, class: "form-control"  %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.date_select :date, class: "form-control"  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

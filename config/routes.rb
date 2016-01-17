@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "budgets#index"
   resources :movements
   resources :budgets
   resources :accounts
