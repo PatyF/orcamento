@@ -15,6 +15,8 @@ class MovementsController < ApplicationController
   # GET /movements/new
   def new
     @movement = Movement.new
+    @categories = Category.all
+    @accounts = Account.all
   end
 
   # GET /movements/1/edit
