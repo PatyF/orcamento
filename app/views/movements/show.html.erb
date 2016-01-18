@@ -6,11 +6,6 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @movement.user_id %>
-</p>
-
-<p>
   <strong>Category:</strong>
   <%= @movement.category_id %>
 </p>
@@ -28,6 +23,11 @@
 <p>
   <strong>Value:</strong>
   <%= @movement.value %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @movement.kind %>
 </p>
 
 <%= link_to 'Edit', edit_movement_path(@movement) %> |

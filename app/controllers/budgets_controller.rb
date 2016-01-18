@@ -5,7 +5,7 @@ class BudgetsController < ApplicationController
   # GET /budgets
   # GET /budgets.json
   def index
-    @budgets = Budget.all
+    @budgets = Budget.where(user_id: session[:user_id])
   end
 
   # GET /budgets/1
@@ -26,7 +26,7 @@ class BudgetsController < ApplicationController
   # POST /budgets.json
   def create
     @budget = Budget.new(budget_params)
-
+    @budget.user_id = session[:user_id]
     respond_to do |format|
       if @budget.save
         format.html { redirect_to @budget, notice: 'Budget was successfully created.' }

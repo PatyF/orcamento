@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160117153950) do
     t.integer  "account_id"
     t.date     "date"
     t.decimal  "value"
+    t.string   "kind"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

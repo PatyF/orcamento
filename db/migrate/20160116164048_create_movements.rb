@@ -7,6 +7,7 @@ class CreateMovements < ActiveRecord::Migration
       t.integer :account_id
       t.date :date
       t.decimal :value
+      t.string :kind 
 
       t.timestamps null: false
     end

@@ -5,7 +5,11 @@ class MovementsController < ApplicationController
   # GET /movements
   # GET /movements.json
   def index
-    @movements = Movement.all
+    @movements = Movement.where(user_id: session[:user_id])
+  end
+
+  def reports
+    @movements = Movement.where(user_id: session[:user_id])
   end
 
   # GET /movements/1
@@ -16,14 +20,15 @@ class MovementsController < ApplicationController
   # GET /movements/new
   def new
     @movement = Movement.new
-    @categories = Category.all
-    @accounts = Account.all
+    @categories = Category.where(user_id: session[:user_id])
+    @accounts = Account.where(user_id: session[:user_id])
+    @movement.kind = 'receita'
   end
 
   # GET /movements/1/edit
   def edit
-    @categories = Category.all
-    @accounts = Account.all
+    @categories = Category.where(user_id: session[:user_id])
+    @accounts = Account.where(user_id: session[:user_id])
   end
 
   # POST /movements
@@ -45,7 +50,6 @@ class MovementsController < ApplicationController
   # PATCH/PUT /movements/1
   # PATCH/PUT /movements/1.json
   def update
-    @movement.user_id = session[:user_id]
     respond_to do |format|
       if @movement.update(movement_params)
         format.html { redirect_to @movement, notice: 'Movement was successfully updated.' }
@@ -75,6 +79,6 @@ class MovementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movement_params
-      params.require(:movement).permit(:description, :user_id, :category_id, :account_id, :date, :value)
+      params.require(:movement).permit(:description, :user_id, :category_id, :account_id, :date, :value, :kind)
     end
 end
