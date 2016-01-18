@@ -9,7 +9,17 @@ class MovementsController < ApplicationController
   end
 
   def reports
+
+    if params[:category].present?
+      category = "#{params[:category][:category_id]}"
+      account = "#{params[:account][:account_id]}"
+      month = "#{params[:month][:month_id]}"
+    end
     @movements = Movement.where(user_id: session[:user_id])
+    @categories = Category.where(user_id: session[:user_id])
+    @accounts = Account.where(user_id: session[:user_id])
+    @months =  Movement.where(user_id: session[:user_id]).select("strftime('%Y%m',date) as id,strftime('%m/%Y',date) as description").distinct
+
   end
 
   # GET /movements/1

@@ -7,7 +7,9 @@ RSpec.describe "movements/show", type: :view do
       :user_id => 1,
       :category_id => 2,
       :account_id => 3,
-      :value => "9.99"
+      :value => "9.99",
+      :date => "2016-01-10",
+      :kind=> "receita"
     ))
   end
 

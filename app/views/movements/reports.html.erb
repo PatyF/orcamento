@@ -1,7 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Report Movements</h1>
-
+<!-- <%= form_tag reports_path, method: :get, class: "navbar-form" do %>
+        <div class="form-group">
+          <div class="field">
+            <%= label :category_id, "Category" %><br>
+            <%= collection_select :category, :category_id, @categories, :id, :description, {}, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= label :account_id, "Account" %><br>
+            <%= collection_select :account, :account_id, @accounts, :id, :description, {}, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= label :month_id, "Month" %><br>
+            <%= collection_select :month, :month_id, @months, :id, :description, {}, class: "form-control" %>
+          </div>
+          <%= button_to "Buscar", nil, class: "btn btn-default" %>
+        </div>
+<% end %> -->
 <table class="table table-bordered">
   <thead>
     <tr>
